@@ -1,0 +1,137 @@
+2011/05/30 12:59:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "groups".' in /var/www/yii/framework/web/CController.php:477
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(262): CController->missingAction('groups')
+#1 /var/www/yii/framework/web/CWebApplication.php(328): CController->run('groups')
+#2 /var/www/yii/framework/web/CWebApplication.php(121): CWebApplication->runController('site/groups')
+#3 /var/www/yii/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#4 /home/paratrooper/snar/index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/snar/index.php?r=site/groups
+2011/05/30 13:00:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "groups".' in /var/www/yii/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(121): CWebApplication->runController('groups')
+#1 /var/www/yii/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paratrooper/snar/index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/snar/index.php?r=groups
+2011/05/30 15:11:10 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.isAdmin" is not defined.' in /var/www/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CWebUser.php(124): CComponent->__get('isAdmin')
+#1 /home/paratrooper/snar/protected/views/layouts/main.php(34): CWebUser->__get('isAdmin')
+#2 /var/www/yii/framework/web/CBaseController.php(119): require('/home/paratroop...')
+#3 /var/www/yii/framework/web/CBaseController.php(88): CBaseController->renderInternal('/home/paratroop...', Array, true)
+#4 /var/www/yii/framework/web/widgets/CContentDecorator.php(78): CBaseController->renderFile('/home/paratroop...', Array, true)
+#5 /var/www/yii/framework/web/widgets/CContentDecorator.php(56): CContentDecorator->decorate('<div class="con...')
+#6 /var/www/yii/framework/web/widgets/COutputProcessor.php(45): CContentDecorator->processOutput('<div class="con...')
+#7 /var/www/yii/framework/web/CBaseController.php(199): COutputProcessor->run()
+#8 /var/www/yii/framework/web/CBaseController.php(294): CBaseController->endWidget('CContentDecorat...')
+#9 /home/paratrooper/snar/protected/views/layouts/column1.php(7): CBaseController->endContent()
+#10 /var/www/yii/framework/web/CBaseController.php(119): require('/home/paratroop...')
+#11 /var/www/yii/framework/web/CBaseController.php(88): CBaseController->renderInternal('/home/paratroop...', Array, true)
+#12 /var/www/yii/framework/web/CController.php(781): CBaseController->renderFile('/home/paratroop...', Array, true)
+#13 /home/paratrooper/snar/protected/controllers/SiteController.php(32): CController->render('index')
+#14 /var/www/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#15 /var/www/yii/framework/web/CController.php(300): CInlineAction->runWithParams(Array)
+#16 /var/www/yii/framework/web/CController.php(278): CController->runAction(Object(CInlineAction))
+#17 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii/framework/web/CWebApplication.php(328): CController->run('')
+#19 /var/www/yii/framework/web/CWebApplication.php(121): CWebApplication->runController('')
+#20 /var/www/yii/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#21 /home/paratrooper/snar/index.php(13): CApplication->run()
+#22 {main} REQUEST_URI=/snar/index.php
+2011/05/30 16:57:04 [error] [exception.CException] exception 'CException' with message 'User does not have a method named "validatePassword".' in /var/www/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(213): CComponent->__call('validatePasswor...', Array)
+#1 [internal function]: CActiveRecord->__call('validatePasswor...', Array)
+#2 /home/paratrooper/snar/protected/components/UserIdentity.php(26): User->validatePassword('demo')
+#3 /home/paratrooper/snar/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#4 /var/www/yii/framework/validators/CInlineValidator.php(39): LoginForm->authenticate('password', Array)
+#5 /var/www/yii/framework/validators/CValidator.php(192): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 /var/www/yii/framework/base/CModel.php(152): CValidator->validate(Object(LoginForm), NULL)
+#7 /home/paratrooper/snar/protected/controllers/SiteController.php(88): CModel->validate()
+#8 /var/www/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionLogin()
+#9 /var/www/yii/framework/web/CController.php(300): CInlineAction->runWithParams(Array)
+#10 /var/www/yii/framework/web/CController.php(278): CController->runAction(Object(CInlineAction))
+#11 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(328): CController->run('login')
+#13 /var/www/yii/framework/web/CWebApplication.php(121): CWebApplication->runController('site/login')
+#14 /var/www/yii/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#15 /home/paratrooper/snar/index.php(13): CApplication->run()
+#16 {main} REQUEST_URI=/snar/index.php?r=site/login
+2011/05/30 17:40:24 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:157
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(119): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1122): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(328): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(121): CWebApplication->runController('user/admin')
+#9 /var/www/yii/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#10 /home/paratrooper/snar/index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/snar/index.php?r=user/admin
+2011/05/30 18:01:21 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:157
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(119): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1122): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(328): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(121): CWebApplication->runController('group/admin')
+#9 /var/www/yii/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#10 /home/paratrooper/snar/index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/snar/index.php?r=group/admin
+2011/05/31 09:18:19 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:157
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(119): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1122): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(328): CController->run('delete')
+#8 /var/www/yii/framework/web/CWebApplication.php(121): CWebApplication->runController('user/delete')
+#9 /var/www/yii/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#10 /home/paratrooper/snar/index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/snar/index.php?r=user/delete&id=1
+2011/05/31 09:18:31 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:157
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(119): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1122): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(328): CController->run('admin')
+#8 /var/www/yii/framework/web/CWebApplication.php(121): CWebApplication->runController('user/admin')
+#9 /var/www/yii/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#10 /home/paratrooper/snar/index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/snar/index.php?r=user/admin
+2011/05/31 09:50:39 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.password" is not defined.' in /var/www/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CWebUser.php(124): CComponent->__get('password')
+#1 /home/paratrooper/snar/protected/models/User.php(134): CWebUser->__get('password')
+#2 /var/www/yii/framework/db/ar/CActiveRecord.php(1057): User->beforeSave()
+#3 /var/www/yii/framework/db/ar/CActiveRecord.php(779): CActiveRecord->update(NULL)
+#4 /home/paratrooper/snar/protected/controllers/UserController.php(96): CActiveRecord->save()
+#5 [internal function]: UserController->actionUpdate('1')
+#6 /var/www/yii/framework/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#7 /var/www/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#8 /var/www/yii/framework/web/CController.php(300): CInlineAction->runWithParams(Array)
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /var/www/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(1122): CFilter->filter(Object(CFilterChain))
+#12 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#15 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /var/www/yii/framework/web/CWebApplication.php(328): CController->run('update')
+#17 /var/www/yii/framework/web/CWebApplication.php(121): CWebApplication->runController('user/update')
+#18 /var/www/yii/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#19 /home/paratrooper/snar/index.php(13): CApplication->run()
+#20 {main} REQUEST_URI=/snar/index.php?r=user/update&id=1

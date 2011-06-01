@@ -102,4 +102,11 @@ class Snar extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+public function getUrl()
+    {
+        return Yii::app()->createUrl('snar/view', array(
+            'id'=>$this->id,
+            'title'=>$this->title,
+        ));
+    }
 }

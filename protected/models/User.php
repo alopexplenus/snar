@@ -69,6 +69,7 @@ class User extends CActiveRecord
 			'groups' => array(self::HAS_MANY, 'Group', 'admin_id'),
 			'snars' => array(self::HAS_MANY, 'Snar', 'owner_id'),
 			'userGroupReferences' => array(self::HAS_MANY, 'UserGroupReference', 'user_id'),
+			'snarCount' => array(self::STAT, 'Snar', 'owner_id',),
 		);
 	}
 
@@ -144,5 +145,14 @@ class User extends CActiveRecord
 		else
 			return false;
 	}
+
+
+public function getUrl()
+    {
+        return Yii::app()->createUrl('user/view', array(
+            'id'=>$this->id,
+            'title'=>$this->username,
+        ));
+    }
 
 }

@@ -13,27 +13,25 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Group #<?php echo $model->id; ?></h1>
+<h1>Группа <?php echo $model->groupname; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id',
 		'groupname',
 		'maillist',
-		'admin_id',
 	),
 )); ?>
 
 <div id="people">
     <?php if($model->userCount>=1): ?>
         <h3>
-            <?php echo $model->userCount . 'comment(s)'; ?>
+           Участники:  <?php echo $model->userCount; ?>
         </h3>
  
         <?php $this->renderPartial('_users',array(
             'group'=>$model,
-            'users'=>$model->users,
+            'users'=>$model->userGroupReferences,
         )); ?>
     <?php endif; ?>
 </div>

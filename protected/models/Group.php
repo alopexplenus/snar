@@ -61,6 +61,7 @@ class Group extends CActiveRecord
 			'admin' => array(self::BELONGS_TO, 'User', 'admin_id'),
 			'snarGroupReferences' => array(self::HAS_MANY, 'SnarGroupReference', 'group_id'),
 			'userGroupReferences' => array(self::HAS_MANY, 'UserGroupReference', 'group_id'),
+			'userCount' => array(self::STAT, 'UserGroupReference', 'group_id',),
 		);
 	}
 

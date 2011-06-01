@@ -13,7 +13,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View User #<?php echo $model->id; ?></h1>
+<h1>Участник <?php echo $model->username; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -27,3 +27,16 @@ $this->menu=array(
 		'profile',
 	),
 )); ?>
+
+<div id="snar">
+    <?php if($model->snarCount>=1): ?>
+        <h3>
+           Артефакты:  <?php echo $model->snarCount; ?> 
+        </h3>
+ 
+        <?php $this->renderPartial('_snars',array(
+            'group'=>$model,
+            'snars'=>$model->snars,
+        )); ?>
+    <?php endif; ?>
+</div>

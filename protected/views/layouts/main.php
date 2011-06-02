@@ -30,12 +30,17 @@
 			'items'=>array(
 				array('label'=>'Главная', 'url'=>array('/site/index')),
 				array('label'=>'Группы', 'url'=>array('/group')),
-				array('label'=>'Снаряжение', 'url'=>array('/snar')),
-				array('label'=>'Пользователи', 'url'=>array('/user')),
+				array('label'=>'Снаряжение', 'url'=>array('/snar'),'visible'=>(!Yii::app()->user->isGuest)),
+				array('label'=>'Пользователи', 'url'=>array('/user'), 'visible'=>(!Yii::app()->user->isGuest)),
+				array('label'=>'UserGroupRef', 'url'=>array('/userGroupReference'), 'visible'=>('admin'==Yii::app()->user->name)),
 				//array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				//array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Выход ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				//array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				//array('label'=>'Выход ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+				array('url'=>Yii::app()->getModule('user')->loginUrl, 'label'=>Yii::app()->getModule('user')->t("Вход"), 'visible'=>Yii::app()->user->isGuest),
+				//array('url'=>Yii::app()->getModule('user')->registrationUrl, 'label'=>Yii::app()->getModule('user')->t("Регистрация"), 'visible'=>Yii::app()->user->isGuest),
+				array('url'=>Yii::app()->getModule('user')->profileUrl, 'label'=>Yii::app()->getModule('user')->t("Профиль"), 'visible'=>!Yii::app()->user->isGuest),
+				array('url'=>Yii::app()->getModule('user')->logoutUrl, 'label'=>Yii::app()->getModule('user')->t("Выход").' ('.Yii::app()->user->name.')', 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>
 	</div><!-- mainmenu -->

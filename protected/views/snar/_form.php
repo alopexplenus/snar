@@ -15,11 +15,6 @@
 		<?php echo $form->error($model,'title'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'description'); ?>
-		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'description'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'weight'); ?>
@@ -27,10 +22,15 @@
 		<?php echo $form->error($model,'weight'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->textArea($model,'description'); ?>
+		<?php echo $form->error($model,'description'); ?>
+	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'owner_id'); ?>
-		<?php echo $form->textField($model,'owner_id'); ?>
+
+		<?php echo $form->dropDownList($model,'owner_id', User::model()->loadItems()); ?>
 		<?php echo $form->error($model,'owner_id'); ?>
 	</div>
 

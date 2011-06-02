@@ -147,12 +147,22 @@ class User extends CActiveRecord
 	}
 
 
-public function getUrl()
+	public function getUrl()
     {
         return Yii::app()->createUrl('user/view', array(
             'id'=>$this->id,
             'title'=>$this->username,
         ));
+    }
+
+    public static function loadItems($type)
+    {
+		$myItems=array();
+        $models=self::model()->findAll(array(
+        ));
+        foreach($models as $model)
+            $myItems[$model->id]=$model->username;
+		return $myItems;
     }
 
 }

@@ -42,7 +42,7 @@ class Snar extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, owner_id', 'required'),
+			array('title', 'required'),
 			array('weight, status, owner_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>128),
 			array('description', 'safe'),
@@ -71,12 +71,12 @@ class Snar extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'title' => 'Title',
-			'description' => 'Description',
-			'weight' => 'Weight',
-			'status' => 'Status',
-			'owner_id' => 'Owner',
+			'id' => '#',
+			'title' => 'название',
+			'description' => 'описание',
+			'weight' => 'вес',
+			'status' => 'личное/общее',
+			'owner_id' => 'владелец',
 		);
 	}
 

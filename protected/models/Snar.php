@@ -17,6 +17,16 @@
  */
 class Snar extends CActiveRecord
 {
+	const STATUS_GROUP = 1;
+	const STATUS_PRIVATE = 2;
+	const STATUS_ERSATZ = 3;
+
+
+	function init(){
+		parent::init();
+		if (!$this->owner_id)$this->owner_id=Yii::app()->user->id;
+	}
+	
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Snar the static model class
@@ -109,4 +119,23 @@ public function getUrl()
             'title'=>$this->title,
         ));
     }
+
+    public static function loadItems($type)
+    {
+		$myItems=array();
+        $models=self::model()->findAll(array(
+        ));
+        foreach($models as $model)
+            $myItems[$model->id]=$model->title;
+		return $myItems;
+    }
+	function afterSave(){ 
+		if ($this->isNewRecord){
+		$gr = new SnarGroupReference();
+		$gr->snar_id = $this->id;
+		$gr->group_id = 1; /// пока нармуль )))))
+		$gr->snar_status=1;
+		$gr->save();
+		}
+	} 
 }

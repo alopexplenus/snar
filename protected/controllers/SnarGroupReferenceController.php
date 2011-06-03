@@ -1,6 +1,6 @@
 <?php
 
-class GroupController extends Controller
+class SnarGroupReferenceController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -27,15 +27,15 @@ class GroupController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index'),
+				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('view'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('create','update','admin','delete'),
+				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -61,14 +61,14 @@ class GroupController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Group;
+		$model=new SnarGroupReference;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Group']))
+		if(isset($_POST['SnarGroupReference']))
 		{
-			$model->attributes=$_POST['Group'];
+			$model->attributes=$_POST['SnarGroupReference'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -90,9 +90,9 @@ class GroupController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Group']))
+		if(isset($_POST['SnarGroupReference']))
 		{
-			$model->attributes=$_POST['Group'];
+			$model->attributes=$_POST['SnarGroupReference'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -127,7 +127,7 @@ class GroupController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Group');
+		$dataProvider=new CActiveDataProvider('SnarGroupReference');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -138,10 +138,10 @@ class GroupController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Group('search');
+		$model=new SnarGroupReference('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Group']))
-			$model->attributes=$_GET['Group'];
+		if(isset($_GET['SnarGroupReference']))
+			$model->attributes=$_GET['SnarGroupReference'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -155,7 +155,7 @@ class GroupController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Group::model()->findByPk((int)$id);
+		$model=SnarGroupReference::model()->findByPk((int)$id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -167,7 +167,7 @@ class GroupController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='group-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='snar-group-reference-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

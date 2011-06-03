@@ -30,9 +30,11 @@
 			'items'=>array(
 				array('label'=>'Главная', 'url'=>array('/site/index')),
 				array('label'=>'Группы', 'url'=>array('/group')),
-				array('label'=>'Снаряжение', 'url'=>array('/snar'),'visible'=>(!Yii::app()->user->isGuest)),
-				array('label'=>'Пользователи', 'url'=>array('/user'), 'visible'=>(!Yii::app()->user->isGuest)),
+				array('label'=>'Снаряжение', 'url'=>array('/snar/my'),'visible'=>(!Yii::app()->user->isGuest)),
+				array('label'=>'Пользователи', 'url'=>array('/user'), 'visible'=>(Yii::app()->getModule('user')->isAdmin())),
 				array('label'=>'UserGroupRef', 'url'=>array('/userGroupReference'), 'visible'=>('admin'==Yii::app()->user->name)),
+				array('label'=>'SnarGroupRef', 'url'=>array('/snarGroupReference'), 'visible'=>('admin'==Yii::app()->user->name)),
+				array('label'=>'Снаряжение', 'url'=>array('/snar'),'visible'=>('admin'==Yii::app()->user->name)),
 				//array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				//array('label'=>'Contact', 'url'=>array('/site/contact')),
 				//array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),

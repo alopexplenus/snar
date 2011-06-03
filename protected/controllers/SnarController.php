@@ -27,7 +27,7 @@ class SnarController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete','index','view'),
+				'actions'=>array('create','update','admin','delete','view','my','index'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -129,6 +129,22 @@ class SnarController extends Controller
 		));
 	}
 
+	public function actionMy()
+	{
+		$uid=Yii::app()->user->id;
+		$dataProvider=new CActiveDataProvider('Snar' , array(
+			'criteria'=>array(
+				'condition'=>('owner_id='.$uid),
+			),
+			'pagination'=>array(
+				'pageSize'=>20,
+			),
+		)
+		);
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
+	}
 	/**
 	 * Manages all models.
 	 */

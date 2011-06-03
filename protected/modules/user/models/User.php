@@ -144,14 +144,6 @@ class User extends CActiveRecord
 			return isset($_items[$type]) ? $_items[$type] : false;
 	}
 	
-	public function getUrl()
-    {
-        return Yii::app()->createUrl('user/view', array(
-            'id'=>$this->id,
-            'title'=>$this->username,
-        ));
-    }
-
     public static function loadItems($type)
     {
 		$myItems=array();

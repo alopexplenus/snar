@@ -57,11 +57,13 @@ class Group extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
+		$sstatus=Snar::STATUS_GROUP;
 		return array(
 			'admin' => array(self::BELONGS_TO, 'User', 'admin_id'),
 			'snarGroupReferences' => array(self::HAS_MANY, 'SnarGroupReference', 'group_id'),
 			'userGroupReferences' => array(self::HAS_MANY, 'UserGroupReference', 'group_id'),
 			'userCount' => array(self::STAT, 'UserGroupReference', 'group_id',),
+			'snarCount' => array(self::STAT, 'SnarGroupReference', 'group_id',),
 		);
 	}
 

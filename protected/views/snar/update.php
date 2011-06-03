@@ -6,10 +6,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Snar', 'url'=>array('index')),
-	array('label'=>'Create Snar', 'url'=>array('create')),
-	array('label'=>'View Snar', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Snar', 'url'=>array('admin')),
+	array('label'=>'Всё снаряжение', 'url'=>array('index')),
+	array('label'=>'Моё снаряжение', 'url'=>array('my')),
+	array('label'=>'Создать', 'url'=>array('create')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 

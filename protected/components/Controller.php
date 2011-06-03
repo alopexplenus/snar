@@ -5,6 +5,10 @@
  */
 class Controller extends CController
 {
+	function init(){ 
+		parent::init();
+		Yii::app()->language = 'ru';
+	} 
 	/**
 	 * @var string the default layout for the controller view. Defaults to '//layouts/column1',
 	 * meaning using a single column layout. See 'protected/views/layouts/column1.php'.

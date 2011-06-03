@@ -29,9 +29,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'owner_id'); ?>
-
 		<?php echo $form->dropDownList($model,'owner_id', User::model()->loadItems()); ?>
 		<?php echo $form->error($model,'owner_id'); ?>
+	</div>
+	<div class="row">
+		<?php //echo $form->labelEx($model,'status'); ?>
+		<?php echo $form->dropDownList($model,'status', Lookup::items('SnarStatus')); ?>
+		<?php echo $form->error($model,'status'); ?>
 	</div>
 
 	<div class="row buttons">

@@ -5,11 +5,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Snar', 'url'=>array('index')),
-	array('label'=>'Create Snar', 'url'=>array('create')),
-	array('label'=>'Update Snar', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Snar', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Snar', 'url'=>array('admin')),
+	array('label'=>'Всё снаряжение', 'url'=>array('index')),
+	array('label'=>'Moё снаряжение', 'url'=>array('my')),
+	array('label'=>'Создать ', 'url'=>array('create')),
+	array('label'=>'Править текущее', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Удалить', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Управлять', 'url'=>array('admin')),
 );
 ?>
 

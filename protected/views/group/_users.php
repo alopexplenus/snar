@@ -1,13 +1,14 @@
 <?php foreach($users as $userReference): ?>
 <div class="user" id="u<?php echo $userReference->id; ?>">
-
-	<?php  echo CHtml::link($userReference->user->username, $userReference->user->getUrl(), array(
-		'class'=>'cid',
-		'title'=>'Permalink to this user',
-	)); ?>
-
 	<div class="content">
+		<?php  echo $userReference->user->profile->firstname ?>
+		<?php  echo $userReference->user->profile->lastname ?>
+		(<?php  echo $userReference->user->username ?>)
+		<a href="mailto:
 		<?php echo CHtml::encode($userReference->user->email); ?>
+		">
+		<?php echo CHtml::encode($userReference->user->email); ?>
+		</a>
 	</div>
 
 </div><!-- user -->

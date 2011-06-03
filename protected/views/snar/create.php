@@ -5,8 +5,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Snar', 'url'=>array('index')),
-	array('label'=>'Manage Snar', 'url'=>array('admin')),
+	array('label'=>'Всё снаряжение', 'url'=>array('index')),
+	array('label'=>'Моё снаряжение', 'url'=>array('my')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 

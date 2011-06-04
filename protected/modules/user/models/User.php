@@ -144,7 +144,7 @@ class User extends CActiveRecord
 			return isset($_items[$type]) ? $_items[$type] : false;
 	}
 	
-    public static function loadItems($type)
+    public static function loadItems($type=null)
     {
 		$myItems=array();
         $models=self::model()->findAll(array(

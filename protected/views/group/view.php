@@ -43,7 +43,7 @@ if (Yii::app()->user->name=='admin'){
         </h3>
         <?php $this->renderPartial('_snar',array(
             'group'=>$model,
-            'snars'=>$model->snarGroupReferences,
+            'snars'=>$model->snars,
         )); ?>
     <?php endif; ?>
 </div>

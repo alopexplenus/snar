@@ -60,7 +60,9 @@ class Group extends CActiveRecord
 		$sstatus=Snar::STATUS_GROUP;
 		return array(
 			'admin' => array(self::BELONGS_TO, 'User', 'admin_id'),
-			'snarGroupReferences' => array(self::HAS_MANY, 'SnarGroupReference', 'group_id'),
+			'snars' => array(self::MANY_MANY, 'Snar','tbl_snar_group_reference(group_id,snar_id)',
+			'order'=>'title',
+			),
 			'userGroupReferences' => array(self::HAS_MANY, 'UserGroupReference', 'group_id'),
 			'userCount' => array(self::STAT, 'UserGroupReference', 'group_id',),
 			'snarCount' => array(self::STAT, 'SnarGroupReference', 'group_id',),

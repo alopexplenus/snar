@@ -28,7 +28,6 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Главная', 'url'=>array('/site/index')),
 				array('label'=>'Группы', 'url'=>array('/group')),
 				array('label'=>'Снаряжение', 'url'=>array('/snar/my'),'visible'=>(!Yii::app()->user->isGuest)),
 				array('label'=>'Пользователи', 'url'=>array('/user'), 'visible'=>(Yii::app()->getModule('user')->isAdmin())),

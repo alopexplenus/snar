@@ -44,7 +44,9 @@ $j++;
 		<?php echo CHtml::encode($snar->owner->username); ?>
 </td>
 <td>
-		<?php // echo CHtml::encode($snar->carrier->username); ?>
+		<?php  
+		// echo CHtml::encode($snar->carrier_id); 
+		?>
 </td>
 </tr><!-- snar -->
 <?php endforeach; ?>

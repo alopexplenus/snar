@@ -63,7 +63,7 @@ class Group extends CActiveRecord
 			'snars' => array(self::MANY_MANY, 'Snar','tbl_snar_group_reference(group_id,snar_id)',
 			'order'=>'title',
 			//'condition'=>'snars.weight=500',
-			'condition' => 'status1 ='.Snar::STATUS_GROUP,
+			'condition' => 'status ='.Snar::STATUS_GROUP,
 			),
 			'userGroupReferences' => array(self::HAS_MANY, 'UserGroupReference', 'group_id'),
 			'userCount' => array(self::STAT, 'UserGroupReference', 'group_id',),

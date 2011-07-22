@@ -27,6 +27,12 @@
 		<?php echo $form->error($model,'admin_id'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'weight_factor'); ?>
+		<?php echo $form->textField($model,'weight_factor'); ?>
+		<?php echo $form->error($model,'weight_factor'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

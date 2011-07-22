@@ -8,6 +8,7 @@
  * @property string $groupname
  * @property string $maillist
  * @property integer $admin_id
+ * @property double $weight_factor
  *
  * The followings are the available model relations:
  * @property User $admin
@@ -57,15 +58,27 @@ class Group extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		$sstatus=Snar::STATUS_GROUP;
 		return array(
 			'admin' => array(self::BELONGS_TO, 'User', 'admin_id'),
 			'snars' => array(self::MANY_MANY, 'Snar','tbl_snar_group_reference(group_id,snar_id)',
 			'order'=>'title',
+			//'condition'=>'snars.weight=500',
+			'condition' => 'status1 ='.Snar::STATUS_GROUP,
 			),
 			'userGroupReferences' => array(self::HAS_MANY, 'UserGroupReference', 'group_id'),
 			'userCount' => array(self::STAT, 'UserGroupReference', 'group_id',),
-			'snarCount' => array(self::STAT, 'SnarGroupReference', 'group_id',),
+			'maleCount' => array(self::STAT, 'Profile', 'tbl_user_group_reference(group_id,user_id)',
+			'condition'=>'gender=2',
+			),
+			'snarCount' => array(self::STAT, 'Snar','tbl_snar_group_reference(group_id,snar_id)',
+			//'condition'=>'weight=500',
+			'condition' => 'status ='.Snar::STATUS_GROUP,
+			),
+			'snarWeight' => array(self::STAT, 'Snar','tbl_snar_group_reference(group_id,snar_id)',
+			//'condition'=>'weight=500',
+			'condition' => 'status ='.Snar::STATUS_GROUP,
+			'select'=>'SUM(weight)',
+			),
 		);
 	}
 
@@ -76,9 +89,10 @@ class Group extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'groupname' => 'Groupname',
-			'maillist' => 'Maillist',
+			'groupname' => 'Название группы',
+			'maillist' => 'список рассылки',
 			'admin_id' => 'Admin',
+			'weight_factor' => '"женский" коэффициент',
 		);
 	}
 

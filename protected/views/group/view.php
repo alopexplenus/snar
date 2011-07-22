@@ -21,13 +21,15 @@ if (Yii::app()->user->name=='admin'){
 	'attributes'=>array(
 		'groupname',
 		'maillist',
+		'weight_factor',
 	),
 )); ?>
 
 <div id="people">
     <?php if($model->userCount>=1): ?>
         <h3>
-           Участники:  <?php echo $model->userCount; ?>
+           Участники:  <?php echo $model->userCount; ?>, 
+           из них <?php echo $model->maleCount; ?> м., <?php echo $model->userCount-$model->maleCount ?> ж.
         </h3>
         <?php $this->renderPartial('_users',array(
             'group'=>$model,
@@ -39,7 +41,15 @@ if (Yii::app()->user->name=='admin'){
 <div id="snar">
     <?php if($model->snarCount>=0): ?>
         <h3>
-           Снаряжение:  <?php // echo $model->snarCount; ?>
+        Снаряжение:  <?php  echo $model->snarCount.' ед.  Общий вес '.$model->snarWeight.'г.'?>
+		<br/>
+		Средний вес на человека: <?php echo $model->snarWeight/$model->userCount; ?>г.
+		<br/>
+		Средний вес м: <?php echo ($model->snarWeight/$model->userCount)*
+		($model->userCount-($model->userCount-$model->maleCount)*$model->weight_factor)/$model->maleCount; ?>г.
+		<br/>
+		Средний вес ж: <?php echo $model->snarWeight/$model->userCount*$model->weight_factor; ?>г.
+
         </h3>
         <?php $this->renderPartial('_snar',array(
             'group'=>$model,

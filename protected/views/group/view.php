@@ -43,12 +43,11 @@ if (Yii::app()->user->name=='admin'){
         <h3>
         Снаряжение:  <?php  echo $model->snarCount.' ед.  Общий вес '.$model->snarWeight.'г.'?>
 		<br/>
-		Средний вес на человека: <?php echo $model->snarWeight/$model->userCount; ?>г.
+		Средний вес на человека: <?php echo $model->average_weight(); ?> г.
 		<br/>
-		Средний вес м: <?php echo ($model->snarWeight/$model->userCount)*
-		($model->userCount-($model->userCount-$model->maleCount)*$model->weight_factor)/$model->maleCount; ?>г.
+		Средний вес м: <?php echo $model->male_weight();?> г.
 		<br/>
-		Средний вес ж: <?php echo $model->snarWeight/$model->userCount*$model->weight_factor; ?>г.
+		Средний вес ж: <?php echo $model->female_weight(); ?> г.
 
         </h3>
         <?php $this->renderPartial('_snar',array(

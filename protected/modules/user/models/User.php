@@ -162,4 +162,5 @@ class User extends CActiveRecord
             $myItems[$model->id]=$model->username;
 		return $myItems;
     }
+
 }

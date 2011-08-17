@@ -1,4 +1,21 @@
 <table cellpadding="0" cellspacing="0" border="0" class="sortable" id="sorter2">
+<tr>
+		<th>
+		участник
+		</th>
+		<th>
+		почта
+		</th>
+		<th>
+		снаряга
+		</th>
+		<th>
+		вес
+		</th>
+		<th>
+		перевес(+) недовес(-)
+		</th>
+</tr>
 
 <?php foreach($users as $userReference): ?>
 <tr>
@@ -19,6 +36,9 @@
 		</td>
 		<td>
 		<?php  echo $userReference->user->snarWeight;?>г 
+		</td>
+		<td>
+		<?php  echo $userReference->snarDiff();?>г 
 		</td>
 </tr>
 

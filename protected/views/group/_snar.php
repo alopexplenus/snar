@@ -1,21 +1,21 @@
 <!--<table id='groupsnar' class="detail-view"> -->
 <table cellpadding="0" cellspacing="0" border="0" class="sortable" id="sorter">
 <tr>
-	<td>
-		#
-	</td>
-	<td>
+	<th class='head'>
 		снаряга
-	</td>
-	<td>
+	</th>
+	<th class='head'>
 		вес
-	</td>
-	<td>
+	</th>
+	<th class='head'>
 		владелец
-	</td>
-	<td>
-		кто несет
-	</td>
+	</th>
+	<th class='asc'>
+		кто_несет
+	</th>
+	<th class='nosort'>
+		&nbsp;
+	</th>
 </tr>
 <?php 
 
@@ -30,9 +30,6 @@ $j++;
 ?>
 <tr class="<?php echo $class_array[$i];?>" id="u<?php echo $snarref->id; ?>">
 <td>
-<?=$j?>
-</td>
-<td>
 	<?php  echo CHtml::encode($snarref->snar->title); ?>
 </td>
 <td>
@@ -42,10 +39,15 @@ $j++;
 		<?php echo CHtml::encode($snarref->snar->owner->profile->firstname.' '.$snarref->snar->owner->profile->lastname); ?>
 </td>
 <td>
-	<?php  echo CHtml::link($snarref->carrier->profile->firstname.' '.$snarref->carrier->profile->lastname, $snarref->getUrl(), array(
-		'class'=>'cid',
-		'title'=>'Изменить несущего',
-	)); ?>
+	<?php  
+	//echo CHtml::link($snarref->carrier->profile->firstname.' '.$snarref->carrier->profile->lastname, $snarref->getUrl(), array( 'class'=>'cid', 'title'=>'Изменить несущего',)); 
+	echo CHtml::encode($snarref->carrier->profile->firstname.' '.$snarref->carrier->profile->lastname); 
+	?>
+</td>
+<td>
+	<?php  
+	echo CHtml::link('изм.', $snarref->getUrl(), array( 'class'=>'cid', 'title'=>'Изменить несущего',)); 
+	?>
 </td>
 </tr><!-- snar -->
 <?php endforeach; ?>

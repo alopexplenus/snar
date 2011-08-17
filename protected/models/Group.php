@@ -119,4 +119,14 @@ class Group extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	public function average_weight(){ 
+		return floor($this->snarWeight/$this->userCount);
+	} 
+	public function male_weight(){ 
+		return floor(($this->snarWeight/$this->userCount)*
+		($this->userCount-($this->userCount-$this->maleCount)*$this->weight_factor)/$this->maleCount); 
+	} 
+	public function female_weight(){ 
+		return floor($this->snarWeight/$this->userCount*$this->weight_factor);
+	} 
 }

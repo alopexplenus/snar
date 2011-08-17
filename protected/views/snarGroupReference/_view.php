@@ -12,13 +12,8 @@
 	<?php echo CHtml::encode($data->snar->title); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('snar_status')); ?>:</b>
-	<?php echo CHtml::encode($data->snar_status); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('carrier_id')); ?>:</b>
-	<?php echo CHtml::encode($data->carrier_id); ?>
+	<?php echo CHtml::encode($data->carrier->username); ?>
 	<br />
-
 
 </div>

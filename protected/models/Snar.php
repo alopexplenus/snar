@@ -135,6 +135,7 @@ public function getUrl()
 		$gr->snar_id = $this->id;
 		$gr->group_id = 1; /// пока нармуль )))))
 		$gr->snar_status=1;
+		$gr->carrier_id=$this->owner_id;
 		$gr->save();
 		}
 	} 

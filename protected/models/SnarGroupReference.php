@@ -58,6 +58,7 @@ class SnarGroupReference extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'snar' => array(self::BELONGS_TO, 'Snar', 'snar_id'),
+			'carrier' => array(self::BELONGS_TO, 'User', 'carrier_id'),
 			'group' => array(self::BELONGS_TO, 'Group', 'group_id'),
 		);
 	}
@@ -97,4 +98,11 @@ class SnarGroupReference extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+public function getUrl()
+    {
+        return Yii::app()->createUrl('snarGroupReference/update', array(
+            'id'=>$this->id,
+            'title'=>$this->snar->title,
+        ));
+    }
 }

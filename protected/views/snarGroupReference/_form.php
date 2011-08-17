@@ -5,31 +5,21 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'group_id'); ?>
-		<?php echo $form->textField($model,'group_id'); ?>
-		<?php echo $form->error($model,'group_id'); ?>
+		<?php echo $model->group->groupname ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'snar_id'); ?>
-		<?php echo $form->textField($model,'snar_id'); ?>
-		<?php echo $form->error($model,'snar_id'); ?>
+		<?php echo $model->snar->title; ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'snar_status'); ?>
-		<?php echo $form->textField($model,'snar_status'); ?>
-		<?php echo $form->error($model,'snar_status'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'carrier_id'); ?>
-		<?php echo $form->textField($model,'carrier_id'); ?>
+		<?php echo $form->dropDownList($model,'carrier_id', User::model()->loadItems()); ?>
 		<?php echo $form->error($model,'carrier_id'); ?>
 	</div>
 

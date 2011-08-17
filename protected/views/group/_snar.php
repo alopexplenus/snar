@@ -22,31 +22,29 @@ $class_array=array('odd','even');
 $i = 1;
 $j=0;
 
-foreach($snars as $snar):
+foreach($snars as $snarref):
 //if ($snar->status!=Snar::STATUS_GROUP) continue; // это убирает из списка негрупповую снарягу
 $i=abs($i-1);
 $j++;
 ?>
-<tr class="<?php echo $class_array[$i];?>" id="u<?php echo $snar->id; ?>">
+<tr class="<?php echo $class_array[$i];?>" id="u<?php echo $snarref->id; ?>">
 <td>
 <?=$j?>
 </td>
 <td>
-	<?php  echo CHtml::link($snar->title, $snar->getUrl(), array(
+	<?php  echo CHtml::encode($snarref->snar->title); ?>
+</td>
+<td>
+		<?php echo CHtml::encode($snarref->snar->weight); ?>гр.
+</td>
+<td>
+		<?php echo CHtml::encode($snarref->snar->owner->profile->firstname.' '.$snarref->snar->owner->profile->lastname); ?>
+</td>
+<td>
+	<?php  echo CHtml::link($snarref->carrier->profile->firstname.' '.$snarref->carrier->profile->lastname, $snarref->getUrl(), array(
 		'class'=>'cid',
-		'title'=>'Permalink to this snar',
+		'title'=>'Изменить несущего',
 	)); ?>
-</td>
-<td>
-		<?php echo CHtml::encode($snar->weight); ?>гр.
-</td>
-<td>
-		<?php echo CHtml::encode($snar->owner->username); ?>
-</td>
-<td>
-		<?php  
-		// echo CHtml::encode($snar->carrier_id); 
-		?>
 </td>
 </tr><!-- snar -->
 <?php endforeach; ?>

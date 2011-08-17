@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update SnarGroupReference <?php echo $model->id; ?></h1>
+<h1>Групповое снаряжение: <?php echo $model->snar->title; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

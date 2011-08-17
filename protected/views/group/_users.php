@@ -9,6 +9,10 @@
 		">
 		<?php echo CHtml::encode($userReference->user->email); ?>
 		</a>
+		<br> несет:
+		<?php  echo $userReference->user->carrySnarCount;?> единиц
+		<br> общий вес:
+		<?php  echo $userReference->user->snarWeight;?>г 
 	</div>
 
 </div><!-- user -->

@@ -1,4 +1,5 @@
-<table id='groupsnar' class="detail-view">
+<!--<table id='groupsnar' class="detail-view"> -->
+<table cellpadding="0" cellspacing="0" border="0" class="sortable" id="sorter">
 <tr>
 	<td>
 		#

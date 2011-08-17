@@ -13,6 +13,8 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/sorter/style.css"  />
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/sorter/script.js"></script>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -60,6 +62,13 @@
 	</div><!-- footer -->
 
 </div><!-- page -->
+<script type="text/javascript">
+var sorter=new table.sorter("sorter");
+sorter.init("sorter",1);
+
+var sorter2=new table.sorter("sorter2");
+sorter2.init("sorter2",1);
+</script>
 
 </body>
 </html>

@@ -30,7 +30,7 @@ $j++;
 ?>
 <tr class="<?php echo $class_array[$i];?>" id="u<?php echo $snarref->id; ?>">
 <td>
-	<?php  echo CHtml::encode($snarref->snar->title); ?>
+	<?php  echo CHtml::encode(mb_convert_case( $snarref->snar->title, MB_CASE_LOWER, "UTF-8")); ?>
 </td>
 <td>
 		<?php echo CHtml::encode($snarref->snar->weight); ?>гр.

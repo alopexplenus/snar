@@ -4,9 +4,6 @@
 		участник
 		</th>
 		<th>
-		почта
-		</th>
-		<th>
 		снаряга
 		</th>
 		<th>
@@ -23,13 +20,6 @@
 		<?php  echo $userReference->user->profile->firstname ?>
 		<?php  echo $userReference->user->profile->lastname ?>
 		(<?php  echo $userReference->user->username ?>)
-		</td>
-		<td>
-		<a href="mailto:
-		<?php echo CHtml::encode($userReference->user->email); ?>
-		">
-		<?php echo CHtml::encode($userReference->user->email); ?>
-		</a>
 		</td>
 		<td>
 		<?php  echo $userReference->user->carrySnarCount;?> единиц

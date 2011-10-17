@@ -1,2 +1,6 @@
 /protected/config
 /assets
+/uprising
+/resonance
+.htaccess
+/error_log

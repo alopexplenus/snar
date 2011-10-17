@@ -4,3 +4,5 @@
 /resonance
 .htaccess
 /error_log
+*.tar.gz
+/boxy

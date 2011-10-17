@@ -1,2 +1,7 @@
 /protected/config
 /assets
+*.tar.gz
+/boxy
+/error_log
+/resonance
+/uprising

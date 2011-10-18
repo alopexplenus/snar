@@ -73,7 +73,7 @@ class SnarGroupReference extends CActiveRecord
 			'group_id' => 'Group',
 			'snar_id' => 'Snar',
 			'snar_status' => 'Snar Status',
-			'carrier_id' => 'Carrier',
+			'carrier_id' => 'Кто несет',
 		);
 	}
 

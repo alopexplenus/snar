@@ -1,7 +1,8 @@
 /protected/config
 /assets
+/uprising
+/resonance
+.htaccess
+/error_log
 *.tar.gz
 /boxy
-/error_log
-/resonance
-/uprising

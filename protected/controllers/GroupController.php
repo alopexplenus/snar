@@ -27,7 +27,7 @@ class GroupController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','slon'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -51,6 +51,21 @@ class GroupController extends Controller
 	public function actionView($id)
 	{
 		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
+	}
+	// Это действие отправки и показ VIEW 
+	public function actionSlon($id)
+	{
+		// сюда добавить вызов функции отправки слонов!!!
+		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
+	}
+	// Это будет окно с уточнением - отправить слонов? 
+	public function actionSlon($id)
+	{
+		$this->render('slon',array( // этого представления пока нет!!!!
 			'model'=>$this->loadModel($id),
 		));
 	}

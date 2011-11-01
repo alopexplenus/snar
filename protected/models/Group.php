@@ -96,6 +96,8 @@ class Group extends CActiveRecord
 			'maillist' => 'список рассылки',
 			'admin_id' => 'Admin',
 			'weight_factor' => '"женский" коэффициент',
+			'slon_message'=>'текст слоновьей записки',
+			'slon_message_subject'=>'тема слоновьей записки',
 		);
 	}
 
@@ -128,5 +130,21 @@ class Group extends CActiveRecord
 	} 
 	public function female_weight(){ 
 		return floor($this->snarWeight/$this->userCount*$this->weight_factor);
+	} 
+	public function sendslon(){ 
+			$users = $this->userGroupReferences;
+		foreach($users as $userReference): 
+				 //echo $userReference->user->profile->firstname;
+				 //echo $userReference->user->profile->lastname;
+				 //echo $userReference->user->username;
+				 //echo $userReference->user->carrySnarCount;
+				 //echo $userReference->user->snarWeight;
+				 //echo $userReference->snarDiff();
+				$to = 'crazy-paratrooper@ya.ru';
+				$subject = $this->slon_message_subject.' '.$userReference->user->email;
+				$message=$this->slon_message."this is a test \n ".$userReference->user->email;
+				$headers="From:nik@niksem.ru";
+				mail($to,$subject,$message,$headers);
+		endforeach; 
 	} 
 }

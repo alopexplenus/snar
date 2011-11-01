@@ -54,18 +54,19 @@ class GroupController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
-	// Это действие отправки и показ VIEW 
+	// окно с уточнением - отправить слонов  - и собсно их отправка
 	public function actionSlon($id)
 	{
-		// сюда добавить вызов функции отправки слонов!!!
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
-	// Это будет окно с уточнением - отправить слонов? 
-	public function actionSlon($id)
-	{
-		$this->render('slon',array( // этого представления пока нет!!!!
+		$model=$this->loadModel($id);
+
+		if(isset($_POST['Group']))
+		{
+			$model->attributes=$_POST['Group'];
+			if($model->save())
+				$model->sendslon();
+				$this->redirect(array('view','id'=>$model->id));
+		}
+		$this->render('slon',array( 
 			'model'=>$this->loadModel($id),
 		));
 	}
@@ -188,4 +189,5 @@ class GroupController extends Controller
 			Yii::app()->end();
 		}
 	}
+
 }

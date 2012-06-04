@@ -1,7 +1,11 @@
 <?php
+error_reporting(E_ALL ^ E_NOTICE); // показывать всё, кроме замечаний
+// это надо, чтобы сервер выводил текст ошибки, а не возвращал ошибку 500
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
 // change the following paths if necessary
-$yii=dirname(__FILE__).'/../framework/yii.php';
+$yii=dirname(__FILE__).'/framework/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
 
 // remove the following lines when in production mode

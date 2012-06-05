@@ -11,6 +11,9 @@
 		владелец
 	</th>
 	<th class='asc'>
+		UserGroupReference
+	</th>
+	<th class='asc'>
 		кто_несет
 	</th>
 	<th class='nosort'>
@@ -40,8 +43,14 @@ $j++;
 </td>
 <td>
 	<?php  
-	//echo CHtml::link($snarref->carrier->profile->firstname.' '.$snarref->carrier->profile->lastname, $snarref->getUrl(), array( 'class'=>'cid', 'title'=>'Изменить несущего',)); 
-	echo CHtml::encode($snarref->carrier->profile->firstname.' '.$snarref->carrier->profile->lastname); 
+	echo CHtml::encode($snarref->id); 
+	echo "&nbsp;";
+	echo CHtml::encode($snarref->carrier->id); 
+	?>
+</td>
+<td>
+	<?php  
+	echo CHtml::encode($snarref->carrier->user->profile->firstname.' '.$snarref->carrier->user->profile->lastname); 
 	?>
 </td>
 <td>

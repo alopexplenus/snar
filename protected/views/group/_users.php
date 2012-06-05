@@ -22,10 +22,10 @@
 		(<?php  echo $userReference->user->username ?>)
 		</td>
 		<td>
-		<?php  echo $userReference->user->carrySnarCount;?> единиц
+		<?php  echo $userReference->carrySnarCount;?> единиц
 		</td>
 		<td>
-		<?php  echo $userReference->user->snarWeight;?>г 
+		<?php  echo $userReference->snarWeight;?>г 
 		</td>
 		<td>
 		<?php  echo $userReference->snarDiff();?>г 

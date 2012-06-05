@@ -49,6 +49,15 @@ class UserGroupReference extends CActiveRecord
 			array('id, group_id, user_id, user_status, user_role', 'safe', 'on'=>'search'),
 		);
 	}
+    public static function loadUserNames($type=null)
+    {
+		$myItems=array();
+        $models=self::model()->findAll(array(
+        ));
+        foreach($models as $model)
+            $myItems[$model->id]=$model->user->username;
+		return $myItems;
+    }
 
 	/**
 	 * @return array relational rules.
@@ -60,6 +69,13 @@ class UserGroupReference extends CActiveRecord
 		return array(
 			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 			'group' => array(self::BELONGS_TO, 'Group', 'group_id'),
+			'carrySnarCount' => array(self::STAT, 'Snar','tbl_snar_group_reference(carrier_id,snar_id)',
+			'condition' => 'tbl_snar_group_reference.group_id = 1',
+			),
+			'snarWeight' => array(self::STAT, 'Snar','tbl_snar_group_reference(carrier_id,snar_id)',
+			'condition' => 'tbl_snar_group_reference.group_id = 1',
+			'select'=>'SUM(weight)',
+			),
 		);
 	}
 
@@ -100,7 +116,7 @@ class UserGroupReference extends CActiveRecord
 		));
 	}
 	public function snarDiff(){ 
-		$has_weight = $this->user->snarWeight();
+		$has_weight = $this->snarWeight();
 		if( 2 == $this->user->profile->gender) $need_weight = $this->group->male_weight();
 		else $need_weight = $this->group->female_weight();
 		return $has_weight-$need_weight;

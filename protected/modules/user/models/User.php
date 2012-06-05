@@ -75,13 +75,15 @@ class User extends CActiveRecord
 			'profile'=>array(self::HAS_ONE, 'Profile', 'user_id'),
 			'snarCount' => array(self::STAT, 'Snar','owner_id',
 			),
+			/*
 			'carrySnarCount' => array(self::STAT, 'Snar','tbl_snar_group_reference(carrier_id,snar_id)',
-			'condition' => 'tbl_snar_group_reference.group_id = 1',
-			),
+			//'condition' => 'tbl_snar_group_reference.group_id = 1',
+			//),
 			'snarWeight' => array(self::STAT, 'Snar','tbl_snar_group_reference(carrier_id,snar_id)',
 			'condition' => 'tbl_snar_group_reference.group_id = 1',
 			'select'=>'SUM(weight)',
 			),
+			*/
 		);
 		if (isset(Yii::app()->getModule('user')->relations)) $relations = array_merge($relations,Yii::app()->getModule('user')->relations);
 		return $relations;

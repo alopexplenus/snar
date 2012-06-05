@@ -122,13 +122,17 @@ class Group extends CActiveRecord
 		));
 	}
 	public function average_weight(){ 
+		if (!$this->userCount)return 0;
 		return floor($this->snarWeight/$this->userCount);
 	} 
 	public function male_weight(){ 
+		if (!$this->userCount)return 0;
+		if (!$this->maleCount)return 0;
 		return floor(($this->snarWeight/$this->userCount)*
 		($this->userCount-($this->userCount-$this->maleCount)*$this->weight_factor)/$this->maleCount); 
 	} 
 	public function female_weight(){ 
+		if (!$this->userCount)return 0;
 		return floor($this->snarWeight/$this->userCount*$this->weight_factor);
 	} 
 	public function sendslon(){ 

@@ -19,7 +19,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'carrier_id'); ?>
-		<?php echo $form->dropDownList($model,'carrier_id', User::model()->loadItems()); ?>
+		<?php echo $form->dropDownList($model,'carrier_id', UserGroupReference::model()->loadUserNames()); ?>
 		<?php echo $form->error($model,'carrier_id'); ?>
 	</div>
 

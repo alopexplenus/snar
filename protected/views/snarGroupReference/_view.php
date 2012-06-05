@@ -13,7 +13,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('carrier_id')); ?>:</b>
-	<?php echo CHtml::encode($data->carrier->username); ?>
+	<?php echo CHtml::encode($data->carrier->user->username); ?>
 	<br />
 
 </div>

@@ -6,3 +6,5 @@
 /error_log
 *.tar.gz
 /boxy
+/map
+/protected/runtime

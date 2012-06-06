@@ -73,7 +73,8 @@ class User extends CActiveRecord
 	{
 		$relations = array(
 			'profile'=>array(self::HAS_ONE, 'Profile', 'user_id'),
-			'snarCount' => array(self::STAT, 'Snar','owner_id',
+			'snarCount' => array(self::STAT, 'Snar','owner_id'),
+			'groups' => array(self::MANY_MANY, 'Group','tbl_user_group_reference(group_id,user_id)',
 			),
 			/*
 			'carrySnarCount' => array(self::STAT, 'Snar','tbl_snar_group_reference(carrier_id,snar_id)',

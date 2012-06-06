@@ -10,8 +10,11 @@
 	<?php echo CHtml::encode($data->owner->username); ?> <br />
 
 	<?php 
+	/*
 	$arr = Lookup::items('SnarStatus');
-	echo CHtml::encode($arr[$data->status]); ?>
+	echo CHtml::encode($arr[$data->status]); 
+	*/
+	?>
 	<br />
 
 

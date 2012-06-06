@@ -32,12 +32,13 @@
 		<?php echo $form->dropDownList($model,'owner_id', User::model()->loadItems()); ?>
 		<?php echo $form->error($model,'owner_id'); ?>
 	</div>
+	<?php /*
 	<div class="row">
 		<?php //echo $form->labelEx($model,'status'); ?>
 		<?php echo $form->dropDownList($model,'status', Lookup::items('SnarStatus')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
-
+	*/ ?>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

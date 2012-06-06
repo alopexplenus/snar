@@ -151,4 +151,18 @@ class Group extends CActiveRecord
 				mail($to,$subject,$message,$headers);
 		endforeach; 
 	} 
+
+	public function amIMember(){ 
+		$occurences = $this->userGroupReferences(array('condition'=>'user_id='.Yii::app()->user->id));
+		if (empty($occurences))return false;
+		else return true;
+	} 
+	public function tryJoin(){ 
+		if (!$this->amIMember()){
+			$gr = new UserGroupReference();
+			$gr->user_id = Yii::app()->user->id;
+			$gr->group_id = $this->id; 
+			$gr->save();
+		}
+	} 
 }

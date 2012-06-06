@@ -129,8 +129,10 @@ public function getUrl()
             $myItems[$model->id]=$model->title;
 		return $myItems;
     }
+
 	function afterSave(){ 
-		if ($this->isNewRecord){
+		/*
+	if ($this->isNewRecord){
 		$gr = new SnarGroupReference();
 		$gr->snar_id = $this->id;
 		$gr->group_id = 1; /// пока нармуль )))))
@@ -138,5 +140,6 @@ public function getUrl()
 		$gr->carrier_id=$this->owner_id;
 		$gr->save();
 		}
+		*/
 	} 
 }

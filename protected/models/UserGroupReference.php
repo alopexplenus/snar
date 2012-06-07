@@ -42,7 +42,7 @@ class UserGroupReference extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('group_id, user_id', 'required'),
-			array('group_id, user_id, user_status, palatka, svyazka, otdelenie', 'numerical', 'integerOnly'=>true),
+			array('group_id, user_id, user_status ', 'numerical', 'integerOnly'=>true),
 			array('user_role, user_name', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

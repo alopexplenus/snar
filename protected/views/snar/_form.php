@@ -38,7 +38,21 @@
 		<?php echo $form->dropDownList($model,'status', Lookup::items('SnarStatus')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
-	*/ ?>
+	*/
+	
+	
+	
+	?>
+	<div class="row ">
+	<?php 
+		$user=User::model()->findByPk(Yii::app()->user->id);
+		foreach($user->groups as $group){ 
+			echo CHtml::checkBox('group'.$group->id);
+			echo $group->groupname."<br>";
+		} 
+	?>
+	</div >
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

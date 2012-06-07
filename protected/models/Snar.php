@@ -131,15 +131,25 @@ public function getUrl()
     }
 
 	function afterSave(){ 
-		/*
-	if ($this->isNewRecord){
-		$gr = new SnarGroupReference();
-		$gr->snar_id = $this->id;
-		$gr->group_id = 1; /// пока нармуль )))))
-		$gr->snar_status=1;
-		$gr->carrier_id=$this->owner_id;
-		$gr->save();
-		}
-		*/
+		echo enteringAfterSave;
+		echo "<br>";
+		$user=User::model()->findByPk(Yii::app()->user->id);
+		foreach($user->groups as $group){ 
+					echo "<br>";
+					echo "group".$group->id.'  '.$group->groupname;
+					//print_r($_POST);
+			if (isset($_POST['group'.$group->id])){ 
+					echo "ok";
+					$occurences = $this->snarGroupReferences(array('condition'=>'group_id='.$group->id));
+					if (!empty($occurences))continue;
+					echo "ok";
+					$gr = new SnarGroupReference();
+					$gr->snar_id = $this->id;
+					$gr->group_id = $group->id; 
+					$gr->snar_status=1;
+					$gr->save();
+			} 
+		} 
+		//exit;
 	} 
 }

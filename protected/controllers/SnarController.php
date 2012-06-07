@@ -64,9 +64,12 @@ class SnarController extends Controller
 
 		if(isset($_POST['Snar']))
 		{
+			print_r($_POST);
 			$model->attributes=$_POST['Snar'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+				$model->afterSave();
+				$this->redirect(array('my','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(

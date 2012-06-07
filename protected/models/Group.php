@@ -165,4 +165,17 @@ class Group extends CActiveRecord
 			$gr->save();
 		}
 	} 
+	public function isSnarInGroup($id){ 
+		$occurences = $this->snarGroupReferences(array('condition'=>'snar_id='.$id));
+		if (empty($occurences))return false;
+		else return true;
+	} 
+	public function tryAddSnar($id){ 
+		if (!$this->isSnarInGroup($id)){
+			$gr = new SnarGroupReference();
+			$gr->snar_id = $id;
+			$gr->group_id = $this->id; 
+			$gr->save();
+		}
+	} 
 }

@@ -14,7 +14,11 @@ if (Yii::app()->user->name=='admin'){
 }
 ?>
 
-<h1>Группа <?php echo $model->groupname; ?></h1>
+<h1>Группа <?php echo $model->groupname; 
+
+
+?></h1>
+
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

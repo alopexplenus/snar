@@ -151,4 +151,31 @@ class Group extends CActiveRecord
 				mail($to,$subject,$message,$headers);
 		endforeach; 
 	} 
+
+	public function amIMember(){ 
+		$occurences = $this->userGroupReferences(array('condition'=>'user_id='.Yii::app()->user->id));
+		if (empty($occurences))return false;
+		else return true;
+	} 
+	public function tryJoin(){ 
+		if (!$this->amIMember()){
+			$gr = new UserGroupReference();
+			$gr->user_id = Yii::app()->user->id;
+			$gr->group_id = $this->id; 
+			$gr->save();
+		}
+	} 
+	public function isSnarInGroup($id){ 
+		$occurences = $this->snarGroupReferences(array('condition'=>'snar_id='.$id));
+		if (empty($occurences))return false;
+		else return true;
+	} 
+	public function tryAddSnar($id){ 
+		if (!$this->isSnarInGroup($id)){
+			$gr = new SnarGroupReference();
+			$gr->snar_id = $id;
+			$gr->group_id = $this->id; 
+			$gr->save();
+		}
+	} 
 }

@@ -31,7 +31,7 @@ class GroupController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('view'),
+				'actions'=>array('view','join'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -116,6 +116,17 @@ class GroupController extends Controller
 		$this->render('update',array(
 			'model'=>$model,
 		));
+	}
+
+	/**
+	 * Adds current user to group
+	 */
+	public function actionJoin($id)
+	{
+		Group::model()->findByPk($id)->tryJoin();
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view', 'id'=>$id));
 	}
 
 	/**

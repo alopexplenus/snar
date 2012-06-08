@@ -44,6 +44,8 @@
 	
 	?>
 	<div class="row ">
+	<br><br>
+	<h4>Взять в поход:</h4>
 	<?php 
 		$user=User::model()->findByPk(Yii::app()->user->id);
 		foreach($user->groups as $group){ 

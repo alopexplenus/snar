@@ -10,9 +10,9 @@
 	<th class='head'>
 		владелец
 	</th>
-	<th class='asc'>
+<!--	<th class='asc'>
 		UserGroupReference
-	</th>
+	</th> -->
 	<th class='asc'>
 		кто_несет
 	</th>
@@ -39,13 +39,18 @@ $j++;
 		<?php echo CHtml::encode($snarref->snar->weight); ?>гр.
 </td>
 <td>
-		<?php echo CHtml::encode($snarref->snar->owner->profile->firstname.' '.$snarref->snar->owner->profile->lastname); ?>
+		<?php echo CHtml::encode($snarref->snar->owner->profile->firstname.' '.$snarref->snar->owner->profile->lastname);
+		// Тут столбец с технической инфой, открыть для дебагaaа
+		/*
+		?>
+		
 </td>
 <td>
 	<?php  
 	echo CHtml::encode($snarref->id); 
 	echo "&nbsp;";
 	echo CHtml::encode($snarref->carrier->id); 
+	*/
 	?>
 </td>
 <td>

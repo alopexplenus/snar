@@ -131,18 +131,18 @@ public function getUrl()
     }
 
 	function afterSave(){ 
-		echo enteringAfterSave;
-		echo "<br>";
+		////echo enteringAfterSave;
+		////echo "<br>";
 		$user=User::model()->findByPk(Yii::app()->user->id);
 		foreach($user->groups as $group){ 
-					echo "<br>";
-					echo "group".$group->id.'  '.$group->groupname;
+					////echo "<br>";
+					////echo "group".$group->id.'  '.$group->groupname;
 					//print_r($_POST);
 			if (isset($_POST['group'.$group->id])){ 
-					echo "ok";
+					////echo "ok";
 					$occurences = $this->snarGroupReferences(array('condition'=>'group_id='.$group->id));
 					if (!empty($occurences))continue;
-					echo "ok";
+					////echo "ok";
 					$gr = new SnarGroupReference();
 					$gr->snar_id = $this->id;
 					$gr->group_id = $group->id; 

@@ -42,7 +42,7 @@ class Group extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('groupname, maillist, admin_id', 'required'),
+			array('groupname, maillist, admin_id, weight_factor', 'required'),
 			array('admin_id', 'numerical', 'integerOnly'=>true),
 			array('groupname, maillist', 'length', 'max'=>128),
 			// The following rule is used by search().
@@ -75,11 +75,11 @@ class Group extends CActiveRecord
 			),
 			'snarCount' => array(self::STAT, 'Snar','tbl_snar_group_reference(group_id,snar_id)',
 			//'condition'=>'weight=500',
-			'condition' => 'status ='.Snar::STATUS_GROUP,
+			//'condition' => 'status ='.Snar::STATUS_GROUP,
 			),
 			'snarWeight' => array(self::STAT, 'Snar','tbl_snar_group_reference(group_id,snar_id)',
 			//'condition'=>'weight=500',
-			'condition' => 'status ='.Snar::STATUS_GROUP,
+			//'condition' => 'status ='.Snar::STATUS_GROUP,
 			'select'=>'SUM(weight)',
 			),
 		);
@@ -95,7 +95,7 @@ class Group extends CActiveRecord
 			'groupname' => 'Название группы',
 			'maillist' => 'список рассылки',
 			'admin_id' => 'Admin',
-			'weight_factor' => '"женский" коэффициент',
+			'weight_factor' => 'женский коэффициент',
 			'slon_message'=>'текст слоновьей записки',
 			'slon_message_subject'=>'тема слоновьей записки',
 		);

@@ -94,7 +94,7 @@ class SnarGroupReferenceController extends Controller
 		{
 			$model->attributes=$_POST['SnarGroupReference'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('group/view','id'=>$model->group->id));
 		}
 
 		$this->render('update',array(

@@ -30,7 +30,7 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Группы', 'url'=>array('/group')),
+				array('label'=>'Группы', 'url'=>array('/group'),'visible'=>(!Yii::app()->user->isGuest)),
 				array('label'=>'Снаряжение', 'url'=>array('/snar/my'),'visible'=>(!Yii::app()->user->isGuest)),
 				array('label'=>'Пользователи', 'url'=>array('/user'), 'visible'=>(Yii::app()->getModule('user')->isAdmin())),
 				array('label'=>'UserGroupRef', 'url'=>array('/userGroupReference'), 'visible'=>('admin'==Yii::app()->user->name)),

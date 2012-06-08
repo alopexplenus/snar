@@ -64,7 +64,7 @@ class SnarController extends Controller
 
 		if(isset($_POST['Snar']))
 		{
-			print_r($_POST);
+			//print_r($_POST);
 			$model->attributes=$_POST['Snar'];
 			if($model->save()){
 				$model->afterSave();
@@ -92,8 +92,10 @@ class SnarController extends Controller
 		if(isset($_POST['Snar']))
 		{
 			$model->attributes=$_POST['Snar'];
-			if($model->save())
+			if($model->save()){
+				$model->afterSave();
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(
@@ -187,5 +189,6 @@ class SnarController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+		echo "<br>";
 	}
 }

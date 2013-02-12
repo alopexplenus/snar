@@ -71,7 +71,7 @@ class Group extends CActiveRecord
 			'userGroupReferences' => array(self::HAS_MANY, 'UserGroupReference', 'group_id'),
 			'userCount' => array(self::STAT, 'UserGroupReference', 'group_id',),
 			'maleCount' => array(self::STAT, 'Profile', 'tbl_user_group_reference(group_id,user_id)',
-			'condition'=>'gender=2',
+			'condition'=>'gender=1',
 			),
 			'snarCount' => array(self::STAT, 'Snar','tbl_snar_group_reference(group_id,snar_id)',
 			//'condition'=>'weight=500',

@@ -7,7 +7,7 @@ $this->menu=array(
 	array('label'=>'Всё снаряжение', 'url'=>array('index')),
 	array('label'=>'Moё снаряжение', 'url'=>array('my')),
 	array('label'=>'Создать ', 'url'=>array('create')),
-	array('label'=>'Управлять', 'url'=>array('admin')),
+	//array('label'=>'Управлять', 'url'=>array('admin')),
 );
 ?>
 

@@ -1,3 +1,18 @@
+<?php
+/*
+$this->widget('zii.widgets.grid.CGridView', array(
+    'id' => 'snarGrid',
+    'dataProvider' => $snarProvider,
+    'columns' => array(
+        'id',
+        'snar.weight',
+        'carrier_name',
+    ),
+));
+*/
+?>
+
+
 <!--<table id='groupsnar' class="detail-view"> -->
 <table cellpadding="0" cellspacing="0" border="0" class="sortable" id="sorter">
 <tr>
@@ -55,14 +70,35 @@ $j++;
 </td>
 <td>
 	<?php  
-	echo CHtml::encode($snarref->carrier->user->profile->firstname.' '.$snarref->carrier->user->profile->lastname); 
-	?>
-</td>
-<td>
-	<?php  
-	echo CHtml::link('изм.', $snarref->getUrl(), array( 'class'=>'cid', 'title'=>'Изменить несущего',)); 
+	echo CHtml::ajaxLink(
+	//'изменить',
+	CHtml::encode($snarref->carrier->user->profile->firstname.' '.$snarref->carrier->user->profile->lastname),
+	$snarref->getUrl(),
+	array(
+		'type' => 'POST',// method
+		'url' => $snarref->getUrl(),
+		'data'=>array('update'=>TRUE),// DATA
+		'success'=>'function(r){$("#update").html(r).dialog("open"); return false;}', 
+
+	));
 	?>
 </td>
 </tr><!-- snar -->
 <?php endforeach; ?>
 </table>
+<?php
+	$this->beginWidget('zii.widgets.jui.CJuiDialog',array(
+			'id'=>'update',
+			'options'=>array(
+				'title'=>'Update People',
+				'autoOpen'=>false,
+				'modal'=>true,
+				'width'=>'auto',
+				'height'=>'auto',
+				'resizable'=>'true',
+			),
+		));
+	$this->endWidget();
+
+
+?>

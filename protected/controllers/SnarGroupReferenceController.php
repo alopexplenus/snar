@@ -97,9 +97,10 @@ class SnarGroupReferenceController extends Controller
 				$this->redirect(array('group/view','id'=>$model->group->id));
 		}
 
-		$this->render('update',array(
-			'model'=>$model,
-		));
+		if(Yii::app()->request->isAjaxRequest)
+				$this->renderPartial('_form',array('model'=>$model), false, true);
+			else
+				$this->render('update',array('model'=>$model));
 	}
 
 	/**

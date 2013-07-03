@@ -1,11 +1,10 @@
-/protected/config
-/protected/runtime
-/assets
-/uprising
-/resonance
+/protected/config/*
+/protected/runtime/*
+/assets/*
+/uprising/*
+/resonance/*
 .htaccess
 /error_log
 *.tar.gz
 /boxy
 /map
-/protected/runtime

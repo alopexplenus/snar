@@ -16,6 +16,8 @@
  */
 class SnarGroupReference extends CActiveRecord
 {
+	// это свойства которых нет в таблице, они получаются из базы джойнами. Поэтому прописаны сдесь, чтобы система не ругалась что их нет
+	var $carrier_name;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return SnarGroupReference the static model class
@@ -58,7 +60,7 @@ class SnarGroupReference extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'snar' => array(self::BELONGS_TO, 'Snar', 'snar_id'),
-			'carrier' => array(self::BELONGS_TO, 'UserGroupReference', 'carrier_id'),
+			'carrier' => array( self::BELONGS_TO, 'UserGroupReference', 'carrier_id'),
 			'group' => array(self::BELONGS_TO, 'Group', 'group_id'),
 		);
 	}

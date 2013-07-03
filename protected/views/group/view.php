@@ -41,7 +41,6 @@ if (Yii::app()->user->name=='admin'){
         )); ?>
     <?php endif; ?>
 </div>
-
 <div id="snar">
     <?php if($model->snarCount>=0): ?>
         <h3>
@@ -57,6 +56,7 @@ if (Yii::app()->user->name=='admin'){
         <?php $this->renderPartial('_snar',array(
             'group'=>$model,
             'snars'=>$model->snarGroupReferences,
+            'snarProvider'=>$snarProvider
         )); ?>
     <?php endif; ?>
 </div>

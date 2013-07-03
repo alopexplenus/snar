@@ -50,10 +50,26 @@ class GroupController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$snarProvider=new CActiveDataProvider('SnarGroupReference',
+			array(
+				'criteria'=>array(
+					'condition'=>'t.group_id='.$id,
+					//'order'=>'create_time DESC',
+					'join' => 'LEFT JOIN tbl_user_group_reference on (tbl_user_group_reference.id = t.carrier_id) LEFT JOIN tbl_users user ON (user.id = tbl_user_group_reference.user_id) ',
+					'select'=>'user.username as carrier_name',
+					'together'=>true,
+					'with'=>array('snar'),
+				),
+				'pagination'=>array(
+					'pageSize'=>80,
+				),
+		));
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+			'snarProvider'=>$snarProvider,
 		));
 	}
+
 	// окно с уточнением - отправить слонов  - и собсно их отправка
 	public function actionSlon($id)
 	{

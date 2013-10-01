@@ -17,8 +17,6 @@
  */
 class Group extends CActiveRecord
 {
- public $slon_message_subject  = 'subject';
- public $slon_message= 'message';
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Group the static model class

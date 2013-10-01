@@ -136,7 +136,22 @@ class Group extends CActiveRecord
 		return floor($this->snarWeight/$this->userCount*$this->weight_factor);
 	} 
 	public function sendslon(){ 
-			$users = $this->userGroupReferences;
+			$userrefs = $this->userGroupReferences;
+			foreach($userrefs as $userref){ 
+				$users[]=$userref->user;
+			} 
+			/*
+			foreach($users as $usr){ 
+				echo $usr->email;
+			echo "<br><br>";
+			} 
+			echo "<br><br>";
+			echo "<br><br>";
+			echo "<br><br>";
+			*/
+			shuffle($users);
+			shuffle($users);
+			shuffle($users);
 			shuffle($users);
 			$first_emitter = array_pop($users);
 			$emitter = clone $first_emitter;
@@ -145,12 +160,13 @@ class Group extends CActiveRecord
 				$emitter = $collector;
 		} 
 		$this->sendslonmessage($emitter,$first_emitter);
+		//exit;
 	}
-	public function sendslonmessage($emitter_reference,$collector_reference){ 
+	public function sendslonmessage($emitter_object,$collector_object){ 
 				$subject = $this->slon_message_subject;
-				$message= "\n\n Вот хороший человек, который ждёт не дождётся своего слона: \n ".$collector_reference->user->profile->firstname.' '.$collector_reference->user->profile->lastname;
+				$message= "\n\n Вот хороший человек, который ждёт не дождётся своего слона: \n ".$collector_object->profile->firstname.' '.$collector_object->profile->lastname;
 				$headers="From:nik@niksem.ru";
-				mail($emitter_reference->user->email,$subject,$message,$headers);
+				mail($emitter_object->email,$subject,$message,$headers);
 	}
 	public function amIMember(){ 
 		$occurences = $this->userGroupReferences(array('condition'=>'user_id='.Yii::app()->user->id));

@@ -141,10 +141,10 @@ class Group extends CActiveRecord
 			$first_emitter = array_pop($users);
 			$emitter = clone $first_emitter;
 		while($collector= array_pop($users)){ 
-				sendslonmessage($emitter,$collector);
+				$this->sendslonmessage($emitter,$collector);
 				$emitter = $collector;
 		} 
-		sendslonmessage($emitter,$first_emitter);
+		$this->sendslonmessage($emitter,$first_emitter);
 	}
 	public function sendslonmessage($emitter_reference,$collector_reference){ 
 				$subject = $this->slon_message_subject;

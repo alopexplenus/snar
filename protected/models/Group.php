@@ -44,7 +44,7 @@ class Group extends CActiveRecord
 		return array(
 			array('groupname, maillist, admin_id, weight_factor', 'required'),
 			array('admin_id', 'numerical', 'integerOnly'=>true),
-			array('groupname, maillist', 'length', 'max'=>128),
+			array('slon_message_subject, groupname, maillist', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, groupname, maillist, admin_id', 'safe', 'on'=>'search'),
@@ -144,8 +144,8 @@ class Group extends CActiveRecord
 				 //echo $userReference->user->carrySnarCount;
 				 //echo $userReference->user->snarWeight;
 				 //echo $userReference->snarDiff();
-				$subject = $this->slon_message_subject.' '.$userReference->user->email;
-				$message=$this->slon_message."this is a test \n ".$userReference->user->email;
+				$subject = 'subject:'.$this->slon_message_subject.' to:'.$userReference->user->email;
+				$message=$this->slon_message."this is a test \n to ".$userReference->user->email;
 				$headers="From:nik@niksem.ru";
 				mail($userReference->user->email,$subject,$message,$headers);
 		endforeach; 

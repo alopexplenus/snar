@@ -145,11 +145,8 @@ class Group extends CActiveRecord
 				echo $usr->email;
 			echo "<br><br>";
 			} 
-			echo "<br><br>";
-			echo "<br><br>";
-			echo "<br><br>";
+			echo "<br><br>"; echo "<br><br>"; echo "<br><br>";
 			*/
-			shuffle($users);
 			shuffle($users);
 			shuffle($users);
 			shuffle($users);
@@ -166,6 +163,7 @@ class Group extends CActiveRecord
 				$subject = $this->slon_message_subject;
 				$message= "\n\n Вот хороший человек, который ждёт не дождётся своего слона: \n ".$collector_object->profile->firstname.' '.$collector_object->profile->lastname;
 				$headers="From:nik@niksem.ru";
+				$headers .= "Content-type: text/plain; charset=UTF-8\r\n";
 				mail($emitter_object->email,$subject,$message,$headers);
 	}
 	public function amIMember(){ 

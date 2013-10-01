@@ -17,6 +17,8 @@
  */
 class Group extends CActiveRecord
 {
+ public $slon_message_subject  = 'subject';
+ public $slon_message= 'message';
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Group the static model class
@@ -144,11 +146,10 @@ class Group extends CActiveRecord
 				 //echo $userReference->user->carrySnarCount;
 				 //echo $userReference->user->snarWeight;
 				 //echo $userReference->snarDiff();
-				$to = 'crazy-paratrooper@ya.ru';
 				$subject = $this->slon_message_subject.' '.$userReference->user->email;
 				$message=$this->slon_message."this is a test \n ".$userReference->user->email;
 				$headers="From:nik@niksem.ru";
-				mail($to,$subject,$message,$headers);
+				mail($userReference->user->email,$subject,$message,$headers);
 		endforeach; 
 	} 
 

@@ -69,10 +69,16 @@ $j++;
 	?>
 </td>
 <td>
+	<?php
+	echo CHtml::encode($snarref->carrier->user->profile->firstname.' '.$snarref->carrier->user->profile->lastname);
+
+	?>
+</td>
+<td>
 	<?php  
 	echo CHtml::ajaxLink(
 	//'изменить',
-	CHtml::encode($snarref->carrier->user->profile->firstname.' '.$snarref->carrier->user->profile->lastname),
+	"...",
 	$snarref->getUrl(),
 	array(
 		'type' => 'POST',// method

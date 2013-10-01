@@ -114,7 +114,7 @@ class UserGroupReference extends CActiveRecord
 	}
 	public function snarDiff(){ 
 		$has_weight = $this->snarWeight();
-		if( 2 == $this->user->profile->gender) $need_weight = $this->group->male_weight();
+		if( 1 == $this->user->profile->gender) $need_weight = $this->group->male_weight();
 		else $need_weight = $this->group->female_weight();
 		return $has_weight-$need_weight;
 	} 

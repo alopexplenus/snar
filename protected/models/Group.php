@@ -148,7 +148,7 @@ class Group extends CActiveRecord
 	}
 	public function sendslonmessage($emitter_reference,$collector_reference){ 
 				$subject = $this->slon_message_subject;
-				$message= $this->slon_message."\n\n Вот хороший человек, который ждёт не дождётся своего слона: \n ".$collector_reference->user->profile->firstname.$collector_reference->user->profile->lastname;
+				$message= "\n\n Вот хороший человек, который ждёт не дождётся своего слона: \n ".$collector_reference->user->profile->firstname.' '.$collector_reference->user->profile->lastname;
 				$headers="From:nik@niksem.ru";
 				mail($emitter_reference->user->email,$subject,$message,$headers);
 	}

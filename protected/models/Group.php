@@ -162,7 +162,7 @@ class Group extends CActiveRecord
 	public function sendslonmessage($emitter_object,$collector_object){ 
 				$subject = $this->slon_message_subject;
 				$message= "\n\n Вот хороший человек, который ждёт не дождётся своего слона: \n ".$collector_object->profile->firstname.' '.$collector_object->profile->lastname;
-				$headers="From:nik@niksem.ru";
+				$headers="From:nik@niksem.ru \r\n";
 				$headers .= "Content-type: text/plain; charset=UTF-8\r\n";
 				mail($emitter_object->email,$subject,$message,$headers);
 	}

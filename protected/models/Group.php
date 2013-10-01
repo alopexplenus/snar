@@ -137,20 +137,21 @@ class Group extends CActiveRecord
 	} 
 	public function sendslon(){ 
 			$users = $this->userGroupReferences;
-		foreach($users as $userReference): 
-				 //echo $userReference->user->profile->firstname;
-				 //echo $userReference->user->profile->lastname;
-				 //echo $userReference->user->username;
-				 //echo $userReference->user->carrySnarCount;
-				 //echo $userReference->user->snarWeight;
-				 //echo $userReference->snarDiff();
-				$subject = 'subject:'.$this->slon_message_subject.' to:'.$userReference->user->email;
-				$message=$this->slon_message."this is a test \n to ".$userReference->user->email;
+			shuffle($users);
+			$first_emitter = array_pop($users);
+			$emitter = clone $first_emitter;
+		while($collector= array_pop($users)){ 
+				sendslonmessage($emitter,$collector);
+				$emitter = $collector;
+		} 
+		sendslonmessage($emitter,$first_emitter);
+	}
+	public function sendslonmessage($emitter_reference,$collector_reference){ 
+				$subject = $this->slon_message_subject;
+				$message= $this->slon_message."\n\n Вот хороший человек, который ждёт не дождётся своего слона: \n ".$collector_reference->user->profile->firstname.$collector_reference->user->profile->lastname;
 				$headers="From:nik@niksem.ru";
-				mail($userReference->user->email,$subject,$message,$headers);
-		endforeach; 
-	} 
-
+				mail($emitter_reference->user->email,$subject,$message,$headers);
+	}
 	public function amIMember(){ 
 		$occurences = $this->userGroupReferences(array('condition'=>'user_id='.Yii::app()->user->id));
 		if (empty($occurences))return false;
